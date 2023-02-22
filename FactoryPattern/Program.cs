@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            int wheelCount;
+            bool input = false;
+            do
+            {
+                Console.WriteLine("Enter the number of tires on the vehicle you want to create");
+                input = int.TryParse(Console.ReadLine(), out wheelCount);
+            } while (input == false);
+            var vehicle = VehicleFactory.GetVehicle(wheelCount);
+            vehicle.Build();
         }
     }
 }
